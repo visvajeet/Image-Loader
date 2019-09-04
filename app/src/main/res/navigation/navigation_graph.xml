@@ -12,7 +12,9 @@
         android:label="ImageListFragment" >
         <action
             android:id="@+id/action_imageListFragment_to_imagePreviewFragment"
-            app:destination="@id/imagePreviewFragment" />
+            app:destination="@id/imagePreviewFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
     </fragment>
 
     <fragment
@@ -26,6 +28,7 @@
         <action
             android:id="@+id/action_imagePreviewFragment_to_imageListFragment"
             app:destination="@id/imageListFragment"
+            app:exitAnim="@anim/fragment_fade_exit"
             app:popUpTo="@+id/imageListFragment"
             app:popUpToInclusive="false" />
     </fragment>

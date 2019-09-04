@@ -29,7 +29,7 @@ class ImageListViewModel : ViewModel(){
 
 
     init {
-
+        
         _isError.value = false
         _isLoading.value = false
 

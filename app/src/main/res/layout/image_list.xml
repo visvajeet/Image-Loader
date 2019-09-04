@@ -53,6 +53,7 @@
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     tools:listitem="@layout/image_item"
                     app:spanCount="@integer/gallery_columns"
+                    android:saveEnabled="true"
                     android:id="@+id/recycleViewImages"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">

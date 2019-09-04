@@ -35,7 +35,7 @@ class ImagePreviewFragment : Fragment() {
 
         viewModel.backPress.observe(this, Observer {
             if(it){
-                this.findNavController().navigate(ImagePreviewFragmentDirections.actionImagePreviewFragmentToImageListFragment())
+                this.activity?.onBackPressed()
                 viewModel.onBackPressedDone()
             }
         })

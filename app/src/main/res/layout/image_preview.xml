@@ -24,6 +24,7 @@
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/imageButtonBack"
             android:tint="@color/white"
+            android:foreground="@drawable/ripple_effect"
             android:src="@drawable/arrow_back"
             android:layout_width="50dp"
             android:layout_height="50dp"
