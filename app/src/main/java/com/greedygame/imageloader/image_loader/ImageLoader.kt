@@ -23,7 +23,6 @@ class ImageLoader (context: Context)  {
     init {
         memoryCache = object : LruCache<String, Bitmap>(maxCacheSize) {
             override fun sizeOf(key: String, bitmap: Bitmap): Int {
-                // The cache size will be measured in kilobytes rather than number of items.
                 return bitmap.byteCount / 1024
             }
         }
@@ -61,21 +60,12 @@ class ImageLoader (context: Context)  {
 
     fun load(imageView: ImageView, imageUrl: String) {
 
-        require(true) {
-            "ImageView should not be null."
-        }
-
-        require(imageUrl.isNotEmpty()) {
-            "Image Url should not be empty"
-        }
 
         imageView.setImageResource(0)
         imageViewMap[imageView] = imageUrl
 
         val bitmap = checkImageInCache(imageUrl)
-        bitmap?.let {
-            loadImageIntoImageView(imageView, it, imageUrl)
-        } ?: run {
+        bitmap?.let { loadImageIntoImageView(imageView, it, imageUrl) } ?: run {
             executorService.submit(PhotosLoader(ImageRequest(imageUrl, imageView)))
         }
     }

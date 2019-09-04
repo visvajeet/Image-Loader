@@ -16,6 +16,7 @@
 
 package com.greedygame.imageloader.adapter
 
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -53,7 +54,10 @@ class ImageLoadAdapter(private val items: List<ImageData>, val listener: ImageLi
 
     class ImageListListener(val clickListener:(image: String) -> Unit){
         fun onCLick(image:ImageData){
-            clickListener(image.imagesUrl["full"] ?: error(""))
+            Handler().postDelayed({
+                clickListener(image.imagesUrl["full"] ?: error(""))
+            }, 100)
+
         }
     }
 

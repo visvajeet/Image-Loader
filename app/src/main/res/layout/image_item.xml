@@ -19,12 +19,15 @@
 
     <LinearLayout
 
+
         android:orientation="vertical"
-        android:onClick="@{() -> clickListener.onCLick(item)}"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <androidx.cardview.widget.CardView
+            android:foreground="@drawable/ripple_effect"
+            android:onClick="@{() -> clickListener.onCLick(item)}"
             app:cardElevation="2dp"
             app:cardCornerRadius="5dp"
             android:layout_margin="3dp"

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -29,21 +30,25 @@ class ImageListFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         binding = DataBindingUtil.inflate(inflater,R.layout.image_list,container,false)
-        binding.lifecycleOwner = this
+
+
         imageListViewModel = ViewModelProvider(this).get(ImageListViewModel::class.java)
+        binding.viewModel = imageListViewModel
+        binding.lifecycleOwner = this
 
 
+        imageListViewModel.imageList.observe(this, Observer { it ->
 
-        ImageApi.retrofitService.getProperties().enqueue( object: Callback<List<ImageData>> {
-            override fun onFailure(call: Call<List<ImageData>>, t: Throwable) {
-                Log.i("ERROR", t.message)
-            }
-
-            override fun onResponse(call: Call<List<ImageData>>, response: Response<List<ImageData>>) {
-                binding.recycleViewImages.adapter = ImageLoadAdapter(response.body()!!, ImageLoadAdapter.ImageListListener {
+                binding.recycleViewImages.adapter = ImageLoadAdapter(it, ImageLoadAdapter.ImageListListener {
                     imageListViewModel.onImageListClicked(it)
                 })
 
+        })
+
+        imageListViewModel.isError.observe(this, Observer {
+            if(it){
+                Toast.makeText(this.activity,"Something went wrong please try again.",Toast.LENGTH_LONG).show()
+                imageListViewModel.errorCleared()
             }
         })
 

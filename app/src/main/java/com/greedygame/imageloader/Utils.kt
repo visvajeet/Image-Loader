@@ -11,6 +11,7 @@ class Utils{
         @JvmStatic
         fun loadImage(view: ImageView, imageUrl: String) {
              ImageLoader.with(view.context).load(view, imageUrl)
+           // Picasso.get().load(imageUrl).into(view)
         }
     }
 }
