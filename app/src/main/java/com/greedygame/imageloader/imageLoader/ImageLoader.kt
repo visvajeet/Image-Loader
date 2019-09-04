@@ -1,4 +1,4 @@
-package com.greedygame.imageloader.image_loader
+package com.greedygame.imageloader.imageLoader
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -12,7 +12,7 @@ import java.util.concurrent.Executors
 
 class ImageLoader (context: Context)  {
 
-    private val maxCacheSize: Int = (Runtime.getRuntime().maxMemory() / 1024).toInt()/8
+    private val maxCacheSize: Int = (Runtime.getRuntime().maxMemory() / 1024).toInt()/4
     private val memoryCache: LruCache<String, Bitmap>
 
     private val executorService: ExecutorService
@@ -65,7 +65,8 @@ class ImageLoader (context: Context)  {
         imageViewMap[imageView] = imageUrl
 
         val bitmap = checkImageInCache(imageUrl)
-        bitmap?.let { loadImageIntoImageView(imageView, it, imageUrl) } ?: run {
+        bitmap?.let {
+            loadImageIntoImageView(imageView, it, imageUrl) } ?: run {
             executorService.submit(PhotosLoader(ImageRequest(imageUrl, imageView)))
         }
     }

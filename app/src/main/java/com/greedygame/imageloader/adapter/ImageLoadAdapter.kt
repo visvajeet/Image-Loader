@@ -24,7 +24,7 @@ import com.greedygame.imageloader.databinding.ImageItemBinding
 import com.greedygame.imageloader.pojo.ImageData
 
 
-class ImageLoadAdapter(private val items: List<ImageData>, val listener: ImageListListener ) : RecyclerView.Adapter<ImageLoadAdapter.ViewHolder>() {
+class ImageLoadAdapter(private val items: List<ImageData>, private val listener: ImageListListener ) : RecyclerView.Adapter<ImageLoadAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -55,7 +55,7 @@ class ImageLoadAdapter(private val items: List<ImageData>, val listener: ImageLi
     class ImageListListener(val clickListener:(image: String) -> Unit){
         fun onCLick(image:ImageData){
             Handler().postDelayed({
-                clickListener(image.imagesUrl["full"] ?: error(""))
+                clickListener(image.imagesUrl["regular"] ?: error(""))
             }, 100)
 
         }

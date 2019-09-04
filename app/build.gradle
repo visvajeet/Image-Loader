@@ -43,7 +43,6 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-  //  implementation 'com.squareup.picasso:picasso:2.71828'
 
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.2.0-alpha01'
@@ -52,11 +51,11 @@ dependencies {
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
 
     implementation 'com.squareup.retrofit2:retrofit:2.6.1'
-    //implementation 'com.squareup.retrofit2:converter-scalars:2.6.1'
+
 
     implementation 'com.squareup.retrofit2:converter-moshi:2.6.1'
     implementation "com.squareup.moshi:moshi-kotlin:1.8.0"
-   // implementation("com.squareup.moshi:moshi:1.8.0")
+   
 
 
 

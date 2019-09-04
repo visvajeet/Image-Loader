@@ -1,4 +1,4 @@
-package com.greedygame.imageloader.image_loader
+package com.greedygame.imageloader.imageLoader
 
 import android.graphics.Bitmap
 import android.graphics.Bitmap.CompressFormat
@@ -36,7 +36,7 @@ object Utils {
         if(width == 0 || height == 0) return bitmap
 
         val stream = ByteArrayOutputStream()
-        bitmap.compress(CompressFormat.PNG, 100, stream)
+        bitmap.compress(CompressFormat.JPEG, 80, stream)
         val inputStream = BufferedInputStream(ByteArrayInputStream(stream.toByteArray()))
 
         // Scale Bitmap to required ImageView Size
