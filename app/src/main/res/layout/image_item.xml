@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+     <data>
+
+
+         <variable
+             name="clickListener"
+             type="com.greedygame.imageloader.adapter.ImageLoadAdapter.ImageListListener" />
+
+         <variable
+             name="item"
+             type="com.greedygame.imageloader.pojo.ImageData" />
+
+
+    </data>
+
+    <LinearLayout
+
+        android:orientation="vertical"
+        android:onClick="@{() -> clickListener.onCLick(item)}"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            app:cardElevation="2dp"
+            app:cardCornerRadius="5dp"
+            android:layout_margin="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="140dp">
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageView"
+                imageUrl="@{item.imagesUrl.get(@string/small)}"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</layout>

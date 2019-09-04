@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/imageListFragment">
+
+    <fragment
+        android:id="@+id/imageListFragment"
+        tools:layout="@layout/image_list"
+        android:name="com.greedygame.imageloader.fragments.ImageListFragment"
+        android:label="ImageListFragment" >
+        <action
+            android:id="@+id/action_imageListFragment_to_imagePreviewFragment"
+            app:destination="@id/imagePreviewFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/imagePreviewFragment"
+        tools:layout="@layout/image_preview"
+        android:name="com.greedygame.imageloader.fragments.ImagePreviewFragment"
+        android:label="ImagePreviewFragment" >
+        <argument
+            android:name="url"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_imagePreviewFragment_to_imageListFragment"
+            app:destination="@id/imageListFragment"
+            app:popUpTo="@+id/imageListFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+</navigation>
