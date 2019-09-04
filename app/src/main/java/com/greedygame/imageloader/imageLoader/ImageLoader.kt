@@ -12,7 +12,7 @@ import java.util.concurrent.Executors
 
 class ImageLoader (context: Context)  {
 
-    private val maxCacheSize: Int = (Runtime.getRuntime().maxMemory() / 1024).toInt()/4
+    private val maxCacheSize: Int = (Runtime.getRuntime().maxMemory() / 1024).toInt()/8
     private val memoryCache: LruCache<String, Bitmap>
 
     private val executorService: ExecutorService

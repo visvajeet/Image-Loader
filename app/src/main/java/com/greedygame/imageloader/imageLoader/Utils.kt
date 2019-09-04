@@ -36,7 +36,7 @@ object Utils {
         if(width == 0 || height == 0) return bitmap
 
         val stream = ByteArrayOutputStream()
-        bitmap.compress(CompressFormat.JPEG, 80, stream)
+        bitmap.compress(CompressFormat.JPEG, 100, stream)
         val inputStream = BufferedInputStream(ByteArrayInputStream(stream.toByteArray()))
 
         // Scale Bitmap to required ImageView Size
